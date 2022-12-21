@@ -43,7 +43,6 @@ https://trello.com/b/z9QG6SCb/kidcredible
 
 ## Profile
 LinkedIn - https://www.linkedin.com/in/justin-harris1/
-GitHub - https://github.com/justinharris23
 
 ## Sources
 - tbd
