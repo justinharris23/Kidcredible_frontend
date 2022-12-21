@@ -3,17 +3,13 @@
 ## Kidcredible
 
 ## Description
-
-DUET is a social app where you can make connections with others based on your taste in music. 
+Kidcredible is site to learn about kids products (toys, dolls, figures, clothing, games, television shows, movies) and review products. Users can create create an account and will have the ability to write product reviews. Additionally users can learn about each product through pictures, cost, video clips and a product description. 
 
 ## How to Get Started
 
 - Create an account 
-- Follow the prompts to select your favorite music genres
-- Follow the prompts to select your favorite music artists
-- Explore the feed, where you can see comments and threads started by others.
-- Navigate to the "Connections" tab where you can explore profiles you have liked, or explore potential new connections based on your interests.
-- You can also go to the "Genres" and "Artists" tab to update your interests. 
+- Explore the produts page, where users can a list of products by type (games, figures, dolls, clothing, etc)
+- Explore individual produts page, where users can see reviews and ratings, and create their own review.
 
 
 ## Technologies Used
@@ -33,12 +29,12 @@ This site will be built using Django on the backend and React, Javascript and CS
 - Products
 - Reviews
 
-##ERD and CHD
-Link goes here
+## ERD and CHD
+https://www.figma.com/file/ZV6T3NsiqxmsrBWONvVEZB/P4---Kidcredible
 
 
 ### Trello Board
-Link - https://trello.com/b/z9QG6SCb/kidcredible
+https://trello.com/b/z9QG6SCb/kidcredible
 
 ## Post-MVP Ideas
 - Add auth
@@ -47,7 +43,7 @@ Link - https://trello.com/b/z9QG6SCb/kidcredible
 
 
 ## Sources
-- TBD
+- tbd
 
 https://imgur.com/aUJNp26
 
