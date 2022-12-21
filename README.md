@@ -8,8 +8,8 @@ Kidcredible is a site designed for kids and parents where visitors can learn abo
 ## How to Get Started
 
 - Create an account 
-- Explore the produts page where users can a view list of products by type (games, figures, dolls, clothing, etc)
-- Explore individual produts page, where users can see reviews and ratings, and create their own review.
+- Explore the produts page where visitors can a view products by type (games, figures, dolls, clothing, etc)
+- Explore an individual products page where visitors can see reviews and ratings, and create their own reviews.
 
 
 ## Technologies Used
