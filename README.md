@@ -8,7 +8,7 @@ Kidcredible is site to learn about kids products (toys, dolls, figures, clothing
 ## How to Get Started
 
 - Create an account 
-- Explore the produts page, where users can a list of products by type (games, figures, dolls, clothing, etc)
+- Explore the produts page where users can a view list of products by type (games, figures, dolls, clothing, etc)
 - Explore individual produts page, where users can see reviews and ratings, and create their own review.
 
 
