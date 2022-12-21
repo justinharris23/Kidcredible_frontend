@@ -41,9 +41,12 @@ https://trello.com/b/z9QG6SCb/kidcredible
 - Add the ability to add youtube videos
 - add the abilityt to Review youtube channels and content
 
+## Profile
+LinkedIn - https://www.linkedin.com/in/justin-harris1/
+GitHub - https://github.com/justinharris23
 
 ## Sources
 - tbd
 
-https://imgur.com/aUJNp26
+
 
