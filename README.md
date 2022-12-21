@@ -3,7 +3,7 @@
 ## Kidcredible
 
 ## Description
-Kidcredible is site to learn about kids products (toys, dolls, figures, clothing, games, television shows, movies) and review products. Users can create create an account and will have the ability to write product reviews. Additionally users can learn about each product through pictures, cost, video clips and a product description. 
+Kidcredible is a site designed for kids and parents where visitors can learn about kids products (toys, dolls, figures, clothing, games, television shows, movies, and more). Users can create create an account and will have the ability to write product reviews. Additionally users can learn about each product through pictures, video clips and a product description. 
 
 ## How to Get Started
 
