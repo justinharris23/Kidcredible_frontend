@@ -1,3 +1,9 @@
 .App {
   text-align: center;
 }
+
+.productImage {
+width: 300px;
+height: 300px;
+
+}
