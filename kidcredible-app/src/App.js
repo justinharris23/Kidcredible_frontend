@@ -3,6 +3,7 @@ import { Route, Routes } from "react-router-dom"
 import Nav from "./components/Nav"
 // import Home from "./components/Home"
 import Header from "./components/Header"
+import Footer from "./components/Footer"
 import Products from "./components/Products"
 import ProductDetails from "./components/ProductDetails"
 
@@ -10,8 +11,8 @@ function App() {
   return (
     <div className="App">
       <header className="Nav">
-        <Header></Header>
-        <Nav></Nav>
+        <Header />
+        <Nav />
       </header>
       <div>
         <Routes>
@@ -20,6 +21,7 @@ function App() {
           <Route path="/products/:id" element={<ProductDetails />} />
         </Routes>
       </div>
+      <Footer />
     </div>
   )
 }
