@@ -6,43 +6,53 @@ import DeleteReview from "./crud/DeleteReview"
 import UpdateReview from "./crud/UpdateReview"
 import Nav from "./Nav"
 
-function ProductDetails() {
+export default function Reviews() {
   let { id } = useParams()
-  console.log(useParams())
 
-  const [product, setProducts] = useState(null)
+  let navigate = useNavigate()
+
+  const showReview = (id) => {
+    navigate(`/reviews/${id}`)
+  }
+
+  const [products, setProduct] = useState(null)
+  const [reviews, setReview] = useState(null)
 
   useEffect(() => {
-    const getProduct = async () => {
+    const getData = async () => {
       const response = await axios.get(`http://localhost:8000/products/${id}`)
 
-      setProducts(response.data)
+      setProduct(response.data)
+      setReview(response.data.reviews)
     }
-    getProduct()
-  }, [id])
 
-  // if (setProducts.reviews)
-  return product ? (
-    <div className="mt-6 productDetails">
-      <div className="flex justify-center detailsImage">
-        <img src={product.image} />
-      </div>
-      <h1 className="flex justify-center font-bold">{product.name}</h1>
-      <h2 className="flex justify-center">{product.description}</h2>
-      {/* <div className="reviews">
-          <h2>REVIEWS GO HERE</h2>
-          {product.reviews.map((review, i) => (
-            <div className="review" key={review.name}>
-              <h3>{reviews.name}</h3>
-              <h3>{review.body}</h3>
-              <h4>{review.rating}</h4>
+    getData()
+  }, [])
+
+  if (!reviews) {
+    return <h2>Loading Reviews</h2>
+  } else {
+    return (
+      <div className="container">
+        <div className="title">
+          <h1>Reviews for {products.name}!</h1>
+          <div className="flex justify-center detailsImage">
+            <img src={products.image} />
+          </div>
+          <h1 className="flex justify-center font-bold">{products.name}</h1>
+          <h2 className="flex justify-center">{products.description}</h2>
+        </div>
+        <div className="grid">
+          {reviews.map((reviews) => (
+            <div className="cardNoImg">
+              <div className="previewText">
+                <h2>{reviews.name}</h2>
+                <h2>{reviews.body}</h2>
+              </div>
             </div>
           ))}
-        </div> */}
-    </div>
-  ) : (
-    <h1> product not found</h1>
-  )
+        </div>
+      </div>
+    )
+  }
 }
-
-export default ProductDetails
