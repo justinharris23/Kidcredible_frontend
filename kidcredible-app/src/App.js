@@ -1,10 +1,10 @@
 import "./App.css"
 import { Route, Routes } from "react-router-dom"
 import Nav from "./components/Nav"
-import Home from "./components/Home"
+// import Home from "./components/Home"
 import Header from "./components/Header"
-import Products from "./component/Products"
-import ProductDetails from "./component/ProductDetails"
+import Products from "./components/Products"
+import ProductDetails from "./components/ProductDetails"
 
 function App() {
   return (
@@ -15,7 +15,7 @@ function App() {
       </header>
       <div>
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Products />} />
           <Route path="/products" element={<Products />} />
           <Route path="/products/:id" element={<ProductDetails />} />
         </Routes>
