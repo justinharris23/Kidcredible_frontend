@@ -48,6 +48,7 @@ export default function Reviews() {
               <div className="previewText">
                 <h2>{reviews.name}</h2>
                 <h2>{reviews.body}</h2>
+                <DeleteReview></DeleteReview>
               </div>
             </div>
           ))}
