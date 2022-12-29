@@ -1,3 +1,6 @@
+import ReactStars from "react-rating-stars-component"
+import React from "react"
+import { render } from "react-dom"
 import { useState, useEffect } from "react"
 import { useNavigate, useParams } from "react-router-dom"
 import axios from "axios"
@@ -7,6 +10,10 @@ import UpdateReview from "./crud/UpdateReview"
 import Nav from "./Nav"
 
 export default function Reviews() {
+  const ratingChanged = (newRating) => {
+    console.log(newRating)
+  }
+
   let { id } = useParams()
 
   let navigate = useNavigate()
@@ -48,6 +55,14 @@ export default function Reviews() {
               <div className="previewText">
                 <h2>{reviews.name}</h2>
                 <h2>{reviews.body}</h2>
+                {/* <h3>{reviews.rating}</h3> */}
+                <ReactStars
+                  count={5}
+                  value={reviews.rating}
+                  onChange={ratingChanged}
+                  size={24}
+                  activeColor="#ffd700"
+                />
                 <DeleteReview reviews={reviews} />
                 <CreateReview />
               </div>
