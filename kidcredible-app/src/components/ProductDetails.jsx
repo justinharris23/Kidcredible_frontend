@@ -49,6 +49,7 @@ export default function Reviews() {
                 <h2>{reviews.name}</h2>
                 <h2>{reviews.body}</h2>
                 <DeleteReview reviews={reviews} />
+                <CreateReview />
               </div>
             </div>
           ))}

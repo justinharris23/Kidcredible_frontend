@@ -16,7 +16,7 @@ export default function CreateReview(id) {
 
   const handleLogin = async (e) => {
     // const response = await Client.post(`/reviews/`, formData)
-    const response = await axios.delete(`http://localhost:8000/reviews/${id}`)
+    const response = await axios.post(`http://localhost:8000/reviews/${id}`)
     return response.data
     window.location.reload()
   }
@@ -28,14 +28,15 @@ export default function CreateReview(id) {
       <form className="flex flex-col gap-4" onSubmit={handleLogin}>
         <div className="">
           <div className="mb-2 block">
-            <Label htmlFor="name" value="Name" />
+            <h4>Add Your Own Review</h4>
+            {/* <Label htmlFor="name" value="Name" /> */}
           </div>
           <TextInput
             id="name"
             type="name"
             placeholder="name"
             name="name"
-            value={formData.reviewname}
+            value={formData.name}
             required={true}
             onChange={handleLoginForm}
           />
@@ -43,7 +44,7 @@ export default function CreateReview(id) {
 
         <div>
           <div className="mb-2 block">
-            <Label htmlFor="title" value="Title" />
+            {/* <Label htmlFor="title" value="Title" /> */}
           </div>
           <TextInput
             id="title"
@@ -58,7 +59,7 @@ export default function CreateReview(id) {
 
         <div>
           <div className="mb-2 block">
-            <Label htmlFor="body" value="Body" />
+            {/* <Label htmlFor="body" value="Body" /> */}
           </div>
           <TextInput
             id="body"
@@ -73,7 +74,7 @@ export default function CreateReview(id) {
 
         <div>
           <div className="mb-2 block">
-            <Label htmlFor="rating" value="Rating" />
+            {/* <Label htmlFor="rating" value="Rating" /> */}
           </div>
           <TextInput
             id="rating"

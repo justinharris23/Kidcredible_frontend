@@ -17,7 +17,7 @@ const DeleteBtn = () => {
     const review = await axios.get(`http://localhost:8000/products/${id}`)
     console.log(review.data.reviews)
     //need to change this so it can pull any id
-    setReview(reviews.map((review) => review.id))
+    setReview(review.data.reviews[2].id)
   }
   data()
 
