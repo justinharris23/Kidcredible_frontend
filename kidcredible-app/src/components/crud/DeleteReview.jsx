@@ -4,31 +4,33 @@ import { useState, useEffect } from "react"
 import axios from "axios"
 
 const DeleteBtn = () => {
-  //
+  let { id } = useParams() // get the product ID from the URL
 
-  let { id } = useParams()
-  console.log(id)
+  const [reviews, setReviews] = useState([]) // list of reviews for the product
 
-  //need to save the review ID and get it into the axios call
-  const [reviews, setReview] = useState([])
-  console.log(reviews.id)
+  useEffect(() => {
+    const getReviews = async () => {
+      // make a request to the API to get the list of reviews for the product
+      const response = await axios.get(`http://localhost:8000/products/${id}`)
+      setReviews(response.data.reviews)
+    }
 
-  const data = async () => {
-    const review = await axios.get(`http://localhost:8000/products/${id}`)
-    console.log(review.data.reviews)
-    //need to change this so it can pull any id
-    setReview(review.data.reviews[2].id)
-  }
-  data()
+    getReviews()
+  }, [id]) // only make the request when the product ID changes
 
-  const handleDelete = async () => {
-    await axios.delete(`http://localhost:8000/reviews/${reviews}`)
+  const handleDelete = async (reviewId) => {
+    // make a request to the API to delete the review
+    await axios.delete(`http://localhost:8000/reviews/${reviewId}`)
     window.location.reload()
   }
 
   return (
     <div className="deleteBtn">
-      <button onClick={handleDelete}>Delete</button>
+      {reviews.map((review) => (
+        <div key={review.id}>
+          <button onClick={() => handleDelete(review.id)}>Delete</button>
+        </div>
+      ))}
     </div>
   )
 }

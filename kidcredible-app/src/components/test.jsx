@@ -1,24 +1,5 @@
-// import React from "react"
-// import axios from "axios"
-
-// const DeleteReviewBtn = ({ id }) => {
-//   console.log(id)
-
-//   const handleDelete = async () => {
-//     await axios.delete(`http://localhost:8000/reviews/${id}`)
-//   }
-
-//   return (
-//     <div>
-//       <button onClick={handleDelete}>Delete</button>
-//     </div>
-//   )
-// }
-
-// export default DeleteReviewBtn
-
-// commments go here
-
+import ReactStars from "react-rating-stars-component"
+import React from "react"
 import { useEffect, useState, useContext } from "react"
 import { Button, Label, TextInput, ToggleSwitch } from "flowbite-react"
 import axios from "axios"
@@ -49,14 +30,15 @@ export default function CreateReview(id) {
       <form className="flex flex-col gap-4" onSubmit={handleLogin}>
         <div className="">
           <div className="mb-2 block">
-            <Label htmlFor="name" value="Name" />
+            <h4>Add Your Own Review</h4>
+            {/* <Label htmlFor="name" value="Name" /> */}
           </div>
           <TextInput
             id="name"
             type="name"
             placeholder="name"
             name="name"
-            value={formData.reviewname}
+            value={formData.name}
             required={true}
             onChange={handleLoginForm}
           />
@@ -64,7 +46,7 @@ export default function CreateReview(id) {
 
         <div>
           <div className="mb-2 block">
-            <Label htmlFor="title" value="Title" />
+            {/* <Label htmlFor="title" value="Title" /> */}
           </div>
           <TextInput
             id="title"
@@ -79,7 +61,7 @@ export default function CreateReview(id) {
 
         <div>
           <div className="mb-2 block">
-            <Label htmlFor="body" value="Body" />
+            {/* <Label htmlFor="body" value="Body" /> */}
           </div>
           <TextInput
             id="body"
@@ -94,7 +76,7 @@ export default function CreateReview(id) {
 
         <div>
           <div className="mb-2 block">
-            <Label htmlFor="rating" value="Rating" />
+            {/* <Label htmlFor="rating" value="Rating" /> */}
           </div>
           <TextInput
             id="rating"

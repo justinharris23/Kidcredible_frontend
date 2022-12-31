@@ -1,8 +1,10 @@
+import ReactStars from "react-rating-stars-component"
+import React from "react"
 import { useEffect, useState, useContext } from "react"
 import { Button, Label, TextInput, ToggleSwitch } from "flowbite-react"
 import axios from "axios"
 
-export default function CreateReview(id) {
+export default function CreateReview({ id }) {
   const [formData, setFormData] = useState({
     name: "",
     title: "",
@@ -16,12 +18,13 @@ export default function CreateReview(id) {
 
   const handleLogin = async (e) => {
     // const response = await Client.post(`/reviews/`, formData)
-    const response = await axios.post(`http://localhost:8000/reviews/${id}`)
+    const response = await axios.post(
+      `http://localhost:8000/reviews/${id}`,
+      formData
+    )
     return response.data
     window.location.reload()
   }
-
-  useEffect(() => {})
 
   return (
     <div className="w-3/5 m-auto mt-20">

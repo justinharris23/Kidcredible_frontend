@@ -15,6 +15,7 @@ export default function Reviews() {
   }
 
   let { id } = useParams()
+  // let { reviewId } = useParams()
 
   let navigate = useNavigate()
 
@@ -36,6 +37,11 @@ export default function Reviews() {
     getData()
   }, [])
 
+  // const handleDelete = async () => {
+  //   await axios.delete(`http://localhost:8000/reviews/${reviewId}`)
+  //   window.location.reload()
+  // }
+
   if (!reviews) {
     return <h2>Loading Reviews</h2>
   } else {
@@ -49,26 +55,30 @@ export default function Reviews() {
           <h1 className="flex justify-center font-bold">{products.name}</h1>
           <h2 className="flex justify-center">{products.description}</h2>
         </div>
+        <br />
         <div className="grid">
-          {reviews.map((reviews) => (
+          {reviews.map((reviews, index) => (
             <div className="cardNoImg">
               <div className="previewText">
                 <h2>{reviews.name}</h2>
                 <h2>{reviews.body}</h2>
-                {/* <h3>{reviews.rating}</h3> */}
                 <ReactStars
                   count={5}
                   value={reviews.rating}
                   onChange={ratingChanged}
                   size={24}
+                  edit={false}
                   activeColor="#ffd700"
                 />
-                <DeleteReview reviews={reviews} />
-                <CreateReview />
+                <DeleteReview />
+                {/* <button onClick={() => handleDelete(reviews[index].id)}>
+                  Delete
+                </button> */}
               </div>
             </div>
           ))}
         </div>
+        <CreateReview id={id} />
       </div>
     )
   }
