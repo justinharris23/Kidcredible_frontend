@@ -4,26 +4,37 @@ import { useEffect, useState, useContext } from "react"
 import { Button, Label, TextInput, ToggleSwitch } from "flowbite-react"
 import axios from "axios"
 
-export default function CreateReview({ id }) {
+export default function CreateReview({}) {
+  // const id = props.id
+
   const [formData, setFormData] = useState({
     name: "",
     title: "",
     body: "",
-    rating: "",
+    rating: 0, // Initialize rating to 0
   })
+
+  const handleRatingChange = (newRating) => {
+    setFormData({ ...formData, rating: newRating })
+  }
 
   const handleLoginForm = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value })
   }
 
   const handleLogin = async (e) => {
-    // const response = await Client.post(`/reviews/`, formData)
-    const response = await axios.post(
-      `http://localhost:8000/reviews/${id}`,
-      formData
-    )
-    return response.data
-    window.location.reload()
+    e.preventDefault()
+    console.log("Submitting form with data:", formData) // Add this line
+    const response = await axios
+      .post(`http://localhost:8000/reviews/`, formData)
+
+      .then((response) => {
+        console.log("Success:", response) // Add this line
+        window.location.reload()
+      })
+      .catch((error) => {
+        console.log("Error:", error) // Add this line
+      })
   }
 
   return (
@@ -76,17 +87,12 @@ export default function CreateReview({ id }) {
         </div>
 
         <div>
-          <div className="mb-2 block">
-            {/* <Label htmlFor="rating" value="Rating" /> */}
-          </div>
-          <TextInput
-            id="rating"
-            type="rating"
-            placeholder="rating"
-            name="rating"
-            value={formData.rating}
-            required={true}
-            onChange={handleLoginForm}
+          <ReactStars
+            count={5}
+            onChange={handleRatingChange}
+            size={24}
+            color2={"#ffd700"}
+            rating={formData.rating} // Pass the current rating to the component
           />
         </div>
 
