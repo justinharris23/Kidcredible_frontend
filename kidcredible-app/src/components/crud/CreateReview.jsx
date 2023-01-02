@@ -4,36 +4,45 @@ import { useEffect, useState, useContext } from "react"
 import { Button, Label, TextInput, ToggleSwitch } from "flowbite-react"
 import axios from "axios"
 
-export default function CreateReview({}) {
+export default function CreateReview({ id }) {
   // const id = props.id
+
+  let newRating = 0
+
+  const ratingChanged = (rating) => {
+    newRating = rating
+    console.log(newRating)
+  }
 
   const [formData, setFormData] = useState({
     name: "",
     title: "",
     body: "",
-    rating: 0, // Initialize rating to 0
+    rating: newRating,
+    product: `http://localhost:8000/products/${id}`,
   })
 
-  const handleRatingChange = (newRating) => {
-    setFormData({ ...formData, rating: newRating })
-  }
+  // const handleRatingChange = (newRating) => {
+  //   setFormData({ ...formData, rating: newRating })
+  // }
 
   const handleLoginForm = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value })
   }
 
-  const handleLogin = async (e) => {
-    e.preventDefault()
-    console.log("Submitting form with data:", formData) // Add this line
-    const response = await axios
-      .post(`http://localhost:8000/reviews/`, formData)
-
+  const handleLogin = async (event) => {
+    event.preventDefault()
+    await axios
+      .post(`http://localhost:8000/reviews/`, {
+        ...formData,
+        rating: newRating,
+      })
       .then((response) => {
         console.log("Success:", response) // Add this line
         window.location.reload()
       })
       .catch((error) => {
-        console.log("Error:", error) // Add this line
+        // console.log("Error:", error.response.data) // Add this line
       })
   }
 
@@ -89,10 +98,10 @@ export default function CreateReview({}) {
         <div>
           <ReactStars
             count={5}
-            onChange={handleRatingChange}
+            onChange={ratingChanged}
             size={24}
             color2={"#ffd700"}
-            rating={formData.rating} // Pass the current rating to the component
+            value={newRating} // Pass the current rating to the component
           />
         </div>
 

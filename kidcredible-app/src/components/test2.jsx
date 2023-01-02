@@ -7,11 +7,18 @@ import axios from "axios"
 export default function CreateReview({ id }) {
   // const id = props.id
 
+  let newRating = 0
+
+  const ratingChanged = (rating) => {
+    newRating = rating
+    console.log(newRating)
+  }
+
   const [formData, setFormData] = useState({
     name: "",
     title: "",
     body: "",
-    rating: 0, // Initialize rating to 0
+    rating: newRating,
   })
 
   const handleRatingChange = (newRating) => {
@@ -27,7 +34,7 @@ export default function CreateReview({ id }) {
     console.log("Submitting form with data:", formData) // Add this line
     const response = await axios
       .post(
-        `http://localhost:8000/reviews/${id}`,
+        `http://localhost:8000/reviews/`,
 
         formData
       )
@@ -96,7 +103,7 @@ export default function CreateReview({ id }) {
             onChange={handleRatingChange}
             size={24}
             color2={"#ffd700"}
-            rating={formData.rating} // Pass the current rating to the component
+            rating={newRating} // Pass the current rating to the component
           />
         </div>
 

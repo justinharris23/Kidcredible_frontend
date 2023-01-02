@@ -57,30 +57,35 @@ export default function Reviews() {
         </div>
         <br />
         <div className="grid">
-          {reviews.map((review, index) => (
-            <div className="cardNoImg">
-              <div className="previewText">
-                <h2>{review.name}</h2>
-                <h2>{review.body}</h2>
-                <ReactStars
-                  count={5}
-                  value={review.rating}
-                  onChange={ratingChanged}
-                  size={24}
-                  edit={false}
-                  activeColor="#ffd700"
-                />
-                <UpdateReview review={review} id={review.id} />
-                <DeleteReview />
+          {reviews
+            .slice(0)
+            .reverse()
+            .map((review, index) => (
+              <div className="cardNoImg">
+                <div className="previewText">
+                  <h2>{review.name}</h2>
+                  {/* <h2>{review.title}</h2> */}
+                  <h2>{review.body}</h2>
+                  <ReactStars
+                    count={5}
+                    value={review.rating}
+                    onChange={ratingChanged}
+                    size={24}
+                    edit={false}
+                    activeColor="#ffd700"
+                  />
+                  <UpdateReview review={review} id={review.id} />
+                  <DeleteReview reviewdelete={review.id} />
 
-                {/* <button onClick={() => handleDelete(reviews[index].id)}>
+                  {/* <button onClick={() => handleDelete(reviews[index].id)}>
         Delete
       </button> */}
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
         </div>
-        <CreateReview />
+        {<CreateReview id={id} />}
+
         <div></div>
       </div>
     )

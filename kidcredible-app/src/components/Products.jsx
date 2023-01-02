@@ -25,6 +25,7 @@ export default function Products() {
   } else {
     return (
       <div>
+        {/* <div classname="grid grid-cols-1 md:grid-cols-4"> */}
         {products.map((product, i) => (
           <div
             key={product.name}
@@ -50,6 +51,7 @@ export default function Products() {
           </div>
         ))}
       </div>
+      // </div>
     )
   }
 }
