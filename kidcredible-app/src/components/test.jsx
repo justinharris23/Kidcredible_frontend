@@ -1,107 +1,85 @@
 import ReactStars from "react-rating-stars-component"
 import React from "react"
-import { useEffect, useState, useContext } from "react"
-import { Button, Label, TextInput, ToggleSwitch } from "flowbite-react"
+import { render } from "react-dom"
+import { useState, useEffect } from "react"
+import { useNavigate, useParams } from "react-router-dom"
 import axios from "axios"
+import CreateReview from "./crud/CreateReview"
+import DeleteReview from "./crud/DeleteReview"
+import UpdateReview from "./crud/UpdateReview"
+import Nav from "./Nav"
 
-export default function CreateReview({ id }) {
-  // const id = props.id
-
-  const [formData, setFormData] = useState({
-    name: "",
-    title: "",
-    body: "",
-    rating: 0, // Initialize rating to 0
-  })
-
-  const handleRatingChange = (newRating) => {
-    setFormData({ ...formData, rating: newRating })
+export default function Reviews() {
+  const ratingChanged = (newRating) => {
+    console.log(newRating)
   }
 
-  const handleLoginForm = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value })
+  let { id } = useParams()
+  // let { reviewId } = useParams()
+
+  let navigate = useNavigate()
+
+  const showReview = (id) => {
+    navigate(`/reviews/${id}`)
   }
 
-  const handleLogin = async (e) => {
-    e.preventDefault()
-    console.log("Submitting form with data:", formData) // Add this line
-    const response = await axios
-      .post(
-        `http://localhost:8000/reviews/${id}`,
+  const [products, setProduct] = useState(null)
+  const [reviews, setReview] = useState(null)
 
-        formData
-      )
+  useEffect(() => {
+    const getData = async () => {
+      const response = await axios.get(`http://localhost:8000/products/${id}`)
 
-      .then((response) => {
-        console.log("Success:", response) // Add this line
-        window.location.reload()
-      })
-      .catch((error) => {
-        // console.log("Error:", error.response.data) // Add this line
-      })
+      setProduct(response.data)
+      setReview(response.data.reviews)
+    }
+
+    getData()
+  }, [])
+
+  if (!reviews) {
+    return <h2>Loading Reviews</h2>
+  } else {
+    return (
+      <div className="container">
+        <div className="title">
+          <h1>Reviews for {products.name}!</h1>
+          <div className="flex justify-center detailsImage">
+            <img src={products.image} />
+          </div>
+          <h1 className="flex justify-center font-bold">{products.name}</h1>
+          <h2 className="flex justify-center">{products.description}</h2>
+        </div>
+        <br />
+        <div className="grid">
+          {reviews.map((review, index) => (
+            <div className="cardNoImg">
+              <div className="previewText">
+                <h2>{review.name}</h2>
+                {/* <h2>{review.title}</h2> */}
+                <h2>{review.body}</h2>
+                <ReactStars
+                  count={5}
+                  value={review.rating}
+                  onChange={ratingChanged}
+                  size={24}
+                  edit={false}
+                  activeColor="#ffd700"
+                />
+                <UpdateReview review={review} id={review.id} />
+                <DeleteReview />
+
+                {/* <button onClick={() => handleDelete(reviews[index].id)}>
+        Delete
+      </button> */}
+              </div>
+            </div>
+          ))}
+        </div>
+        {<CreateReview id={id} />}
+
+        <div></div>
+      </div>
+    )
   }
-
-  return (
-    <div className="w-3/5 m-auto mt-20">
-      <form className="flex flex-col gap-4" onSubmit={handleLogin}>
-        <div className="">
-          <div className="mb-2 block">
-            <h4>Add Your Own Review</h4>
-            {/* <Label htmlFor="name" value="Name" /> */}
-          </div>
-          <TextInput
-            id="name"
-            type="name"
-            placeholder="name"
-            name="name"
-            value={formData.name}
-            required={true}
-            onChange={handleLoginForm}
-          />
-        </div>
-
-        <div>
-          <div className="mb-2 block">
-            {/* <Label htmlFor="title" value="Title" /> */}
-          </div>
-          <TextInput
-            id="title"
-            type="title"
-            placeholder="title"
-            name="title"
-            value={formData.title}
-            required={true}
-            onChange={handleLoginForm}
-          />
-        </div>
-
-        <div>
-          <div className="mb-2 block">
-            {/* <Label htmlFor="body" value="Body" /> */}
-          </div>
-          <TextInput
-            id="body"
-            type="body"
-            placeholder="body"
-            name="body"
-            value={formData.body}
-            required={true}
-            onChange={handleLoginForm}
-          />
-        </div>
-
-        <div>
-          <ReactStars
-            count={5}
-            onChange={handleRatingChange}
-            size={24}
-            color2={"#ffd700"}
-            rating={formData.rating} // Pass the current rating to the component
-          />
-        </div>
-
-        <Button type="submit">Submit</Button>
-      </form>
-    </div>
-  )
 }
