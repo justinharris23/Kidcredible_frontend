@@ -24,7 +24,7 @@ export default function Products() {
     return <h2> Loading Please Wait</h2>
   } else {
     return (
-      <div>
+      <div className="productCards">
         {/* <div classname="grid grid-cols-1 md:grid-cols-4"> */}
         {products.map((product, i) => (
           <div
