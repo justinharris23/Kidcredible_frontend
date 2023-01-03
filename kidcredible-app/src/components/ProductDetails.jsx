@@ -1,13 +1,11 @@
 import ReactStars from "react-rating-stars-component"
 import React from "react"
-import { render } from "react-dom"
 import { useState, useEffect } from "react"
 import { useNavigate, useParams } from "react-router-dom"
 import axios from "axios"
 import CreateReview from "./crud/CreateReview"
 import DeleteReview from "./crud/DeleteReview"
 import UpdateReview from "./crud/UpdateReview"
-import Nav from "./Nav"
 
 export default function Reviews() {
   const ratingChanged = (newRating) => {
@@ -15,7 +13,6 @@ export default function Reviews() {
   }
 
   let { id } = useParams()
-  // let { reviewId } = useParams()
 
   let navigate = useNavigate()
 
@@ -37,25 +34,22 @@ export default function Reviews() {
     getData()
   }, [])
 
-  // const handleDelete = async () => {
-  //   await axios.delete(`http://localhost:8000/reviews/${reviewId}`)
-  //   window.location.reload()
-  // }
-
   if (!reviews) {
     return <h2>Loading Reviews</h2>
   } else {
     return (
       <div className="container">
-        <div className="title">
-          <h1>Reviews for {products.name}!</h1>
+        <div className="pageDetails">
           <div className="flex justify-center detailsImage">
             <img src={products.image} />
           </div>
-          <h1 className="flex justify-center font-bold">{products.name}</h1>
-          <h2 className="flex justify-center">{products.description}</h2>
+          <div className="detailsContent">
+            <h3 className="flex justify-center font-bold">{products.name}</h3>
+            <h3 className="flex justify-center">{products.description}</h3>
+          </div>
         </div>
         <br />
+        <h1>Reviews for {products.name}!</h1>
         <div className="grid">
           {reviews
             .slice(0)
@@ -76,10 +70,6 @@ export default function Reviews() {
                   />
                   <UpdateReview review={review} id={review.id} />
                   <DeleteReview reviewdelete={review.id} />
-
-                  {/* <button onClick={() => handleDelete(reviews[index].id)}>
-        Delete
-      </button> */}
                 </div>
               </div>
             ))}

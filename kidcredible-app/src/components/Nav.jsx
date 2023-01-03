@@ -21,13 +21,20 @@ export default function Nav(props) {
         </Link>
         <Link to="/">
           {" "}
-          <img
-            classname="headerImage"
-            src={HeaderPicture}
-            width="50%"
-            height="auto"
-          />
+          <div className="mb-3 imageDiv">
+            <img
+              className="headerImage"
+              src={HeaderPicture}
+              width="400px"
+              height="auto"
+            />
+          </div>
         </Link>
+        <div>
+          <button class="button-3" role="button">
+            Sign In
+          </button>
+        </div>
       </div>
       {/* <Link to="/">
         {" "}

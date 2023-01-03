@@ -71,9 +71,11 @@ const UpdateReview = ({ review, id }) => {
           </div>
         </form>
       ) : (
-        <button className="update-button" onClick={() => setUpdate(true)}>
-          Edit
-        </button>
+        <div className="crudButtons">
+          <button className="editBtn" onClick={() => setUpdate(true)}>
+            Edit
+          </button>
+        </div>
       )}
     </div>
   )

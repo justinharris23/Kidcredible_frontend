@@ -11,10 +11,12 @@ const DeleteBtn = ({ reviewdelete }) => {
   }
 
   return (
-    <div className="deleteBtn">
-      <form onSubmit={handleDelete}>
-        <button type="submit">Delete</button>
-      </form>
+    <div className="crudButtons">
+      <div className="deleteBtn">
+        <form onSubmit={handleDelete}>
+          <button type="submit">Delete</button>
+        </form>
+      </div>
     </div>
   )
 }
