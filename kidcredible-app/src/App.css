@@ -1,18 +1,15 @@
 .App {
   text-align: center;
-  background: #f7f9f8;
   font-family: 'Nunito', sans-serif;
+  position: relative;
+  background-image: linear-gradient(90deg, rgba(99, 4, 134, 0) 27.98%, #630486 91.6%), linear-gradient(115.7deg, #C03AF7 13.37%, rgba(192, 58, 247, 1) 92.6%);
 }
 
-/* .grid{
-  display: grid
-  grid-template
-} */
-
-/* .productImage {
-  flex;
-  justify-content: center;
-} */
+.headerImages {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
 
 h1 {
   font-family: 'Nunito', sans-serif;
@@ -106,4 +103,9 @@ height: 300px;
 .deleteBtn:active {
   background-color: #0064bd;
   box-shadow: none;
+}
+
+.homeLink {
+  font-family: 'Butterfly Kids', cursive, bold;
+  font-size: 100px
 }
