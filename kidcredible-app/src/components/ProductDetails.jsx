@@ -49,34 +49,42 @@ export default function Reviews() {
           </div>
         </div>
         <br />
-        <h1>Reviews for {products.name}!</h1>
-        <div className="grid">
-          {reviews
-            .slice(0)
-            .reverse()
-            .map((review, index) => (
-              <div className="cardNoImg">
-                <div className="previewText">
-                  <h2>{review.name}</h2>
-                  {/* <h2>{review.title}</h2> */}
-                  <h2>{review.body}</h2>
-                  <ReactStars
-                    count={5}
-                    value={review.rating}
-                    onChange={ratingChanged}
-                    size={24}
-                    edit={false}
-                    activeColor="#ffd700"
-                  />
-                  <UpdateReview review={review} id={review.id} />
-                  <DeleteReview reviewdelete={review.id} />
+        <h1>Reviews for {products.name}</h1>
+        <div className="mainReview">
+          <div className="reviewContainer">
+            {reviews
+              .slice(0)
+              .reverse()
+              .map((review, index) => (
+                <div className="reviewsCard">
+                  <div className="previewText">
+                    <h4>{review.name}</h4>
+                    {/* <h2>{review.title}</h2> */}
+                    <h4>{review.body}</h4>
+                    <div className="reviewStars">
+                      <ReactStars
+                        count={5}
+                        value={review.rating}
+                        onChange={ratingChanged}
+                        size={24}
+                        edit={false}
+                        activeColor="#ffd700"
+                      />
+                    </div>
+                  </div>
+                  <div className="editDelete">
+                    <div>
+                      <UpdateReview review={review} id={review.id} />
+                    </div>
+                    <div>
+                      <DeleteReview reviewdelete={review.id} />
+                    </div>
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
+          </div>
         </div>
         {<CreateReview id={id} />}
-
-        <div></div>
       </div>
     )
   }

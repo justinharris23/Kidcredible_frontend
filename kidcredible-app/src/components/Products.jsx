@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react"
 import axios from "axios"
 import { useNavigate } from "react-router-dom"
+import ReactStars from "react-rating-stars-component"
+import React from "react"
 
 export default function Products() {
   const [products, setProducts] = useState()
@@ -32,20 +34,37 @@ export default function Products() {
             className="productCard"
             onClick={() => showProduct(product)}
           >
-            <button
+            {/* <button
               className="detailsButton"
               onClick={() => navigate(`/products/${product.id}`)}
             >
               Details
-            </button>
+            </button> */}
             <div className="flex justify-center productImageCard">
-              <div className="flex justify-center productImage">
-                <img src={product.image} />
+              <div
+                style={{
+                  backgroundImage: `url(${product.image})`,
+                  backgroundSize: "cover",
+                }}
+                className="flex justify-center productImage"
+              >
+                {/* <img src={product.image} /> */}
               </div>
             </div>
             <div className="productDetails">
               <div className="flex justify-center productName">
                 <h3> {product.name} </h3>
+              </div>
+            </div>
+            <div className="productRating">
+              <div className="flex justify-center productRating">
+                <ReactStars
+                  count={5}
+                  value={product.rating}
+                  size={24}
+                  edit={false}
+                  activeColor="#ffd700"
+                />
               </div>
             </div>
           </div>
