@@ -8,7 +8,12 @@
 .headerImages {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-evenly;
+}
+
+.headerImage {
+  margin-top: 50px;
+  padding-left: 50px;
 }
 
 h1 {

@@ -16,7 +16,9 @@ export default function Nav(props) {
         url('https://fonts.googleapis.com/css2?family=Butterfly+Kids&display=swap');
       </style>
       <div className="headerImages">
-        <h2 className="homeLink">Kidcredible</h2>{" "}
+        <Link to="/">
+          <h2 className="homeLink">Kidcredible</h2>{" "}
+        </Link>
         <Link to="/">
           {" "}
           <img
