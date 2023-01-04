@@ -8,8 +8,8 @@ const UpdateReview = ({ review, id }) => {
 
   const [update, setUpdate] = useState(false)
   const [formValues, setFormValues] = useState({
-    name: review.name,
-    title: review.title,
+    // name: review.name,
+    // title: review.title,
     body: review.body,
   })
 
@@ -42,21 +42,21 @@ const UpdateReview = ({ review, id }) => {
               &times;
             </button>
           </div>
-          <input
+          {/* <input
             name="name"
             type="text"
             placeholder="Name Here"
             onChange={handleChange}
             value={formValues.name}
-          ></input>
-          <input
+          ></input> */}
+          {/* <input
             className="create-update"
             name="title"
             type="text"
             placeholder="title"
             onChange={handleChange}
             value={formValues.title}
-          ></input>
+          ></input> */}
           <div className="update-close-button">
             <textarea
               name="body"
