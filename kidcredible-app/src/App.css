@@ -31,15 +31,20 @@ h3 {
 }
 
 .productCards {
-  display: flex;
-  flex-flow: row wrap;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(250px, 2fr));
+  gap: 2.5em 0.1em;
+  margin-bottom: 2em;
+  margin-top: 1em;
+  justify-content: center;
+  
 }
 
 .productCard {
   padding: 1em;
   max-height: fit-content;
-  width: 300px;
-  height: auto;
+  width: 200px;
+  height: 300px;
   border: 1px solid black;
   background-color: white;
   border-radius: 0.5em;
@@ -58,8 +63,8 @@ h3 {
 }
 
 .productImage {
-width: 300px;
-height: 300px;
+width: 200px;
+height: 200px;
 
 }
 

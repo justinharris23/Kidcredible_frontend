@@ -45,6 +45,7 @@ export default function Products() {
                 style={{
                   backgroundImage: `url(${product.image})`,
                   backgroundSize: "cover",
+                  backgroundPosition: "center",
                 }}
                 className="flex justify-center productImage"
               >
@@ -53,7 +54,7 @@ export default function Products() {
             </div>
             <div className="productDetails">
               <div className="flex justify-center productName">
-                <h3> {product.name} </h3>
+                <h4> {product.name} </h4>
               </div>
             </div>
             <div className="productRating">
