@@ -79,7 +79,6 @@ height: 200px;
 
 
 
-
 .deleteBtn {
   background-color: #0095ff;
   border: 1px solid transparent;
@@ -140,6 +139,7 @@ height: 200px;
 
 .detailsContent{
   font-size: 20px;
+  text-align: vertical;
 }
 
 .button-3 {
@@ -262,6 +262,6 @@ height: 200px;
   justify-content: flex-end;
 }
 
-.reviewStars {
-  text-align: center;
+.starsContainer {
+  justify-content: center;
 }

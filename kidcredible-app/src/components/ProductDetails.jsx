@@ -43,13 +43,19 @@ export default function Reviews() {
           <div className="flex justify-center detailsImage">
             <img src={products.image} />
           </div>
-          <div className="detailsContent">
-            <h3 className="flex justify-center font-bold">{products.name}</h3>
-            <h3 className="flex justify-center">{products.description}</h3>
+          <div className="align-middle detailsContent">
+            <h3 className="flex justify-center align-middle font-bold">
+              {products.name}
+            </h3>
+            <h3 className="flex justify-center align-middle">
+              {products.description}
+            </h3>
           </div>
         </div>
         <br />
-        <h1>Reviews for {products.name}</h1>
+        <h1 className=" font-semibold text-black reviewsHeader">
+          Reviews for {products.name}
+        </h1>
         <div className="mainReview">
           <div className="reviewContainer">
             {reviews
@@ -61,15 +67,17 @@ export default function Reviews() {
                     <h4>{review.name}</h4>
                     {/* <h2>{review.title}</h2> */}
                     <h4>{review.body}</h4>
-                    <div className="reviewStars">
-                      <ReactStars
-                        count={5}
-                        value={review.rating}
-                        onChange={ratingChanged}
-                        size={24}
-                        edit={false}
-                        activeColor="#ffd700"
-                      />
+                    <div className="starsContainer">
+                      <div className="reviewStars">
+                        <ReactStars
+                          count={5}
+                          value={review.rating}
+                          onChange={ratingChanged}
+                          size={24}
+                          edit={false}
+                          activeColor="#ffd700"
+                        />
+                      </div>
                     </div>
                   </div>
                   <div className="editDelete">
