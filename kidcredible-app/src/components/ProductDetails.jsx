@@ -39,7 +39,7 @@ export default function Reviews() {
   } else {
     return (
       <div className="container">
-        <div className="pageDetails">
+        <div className="flex justify-center pageDetails">
           <div className="flex justify-center detailsImage">
             <img src={products.image} />
           </div>
@@ -62,7 +62,7 @@ export default function Reviews() {
               .slice(0)
               .reverse()
               .map((review, index) => (
-                <div className="reviewsCard">
+                <div className="rounded-xl my-3 reviewsCard">
                   <div className="previewText">
                     <h4>{review.name}</h4>
                     {/* <h2>{review.title}</h2> */}

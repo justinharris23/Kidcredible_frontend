@@ -103,6 +103,7 @@ height: 200px;
   touch-action: manipulation;
   vertical-align: baseline;
   white-space: nowrap;
+  margin-right: 10px;
 }
 
 .deleteBtn:hover,
@@ -127,6 +128,7 @@ height: 200px;
 
 .pageDetails {
   display: flex;
+  justify-content: center;
   margin: 20px;
   border: 1px solid black;
   border-radius: 10px;
@@ -139,7 +141,11 @@ height: 200px;
 
 .detailsContent{
   font-size: 20px;
-  text-align: vertical;
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  margin-top: 40px;
+  margin-right: 10px
 }
 
 .button-3 {
@@ -166,6 +172,8 @@ height: 200px;
   vertical-align: middle;
   white-space: nowrap;
   margin-top: 20px;
+  margin-bottom: 5px;
+  margin-right: 10px;
 }
 
 .button-3:focus:not(:focus-visible):not(.focus-visible) {
@@ -220,6 +228,8 @@ height: 200px;
   touch-action: manipulation;
   vertical-align: baseline;
   white-space: nowrap;
+  margin-right: 10px;
+  margin-bottom: 5px;
 }
 
 .editBtn:hover,
@@ -257,11 +267,17 @@ height: 200px;
   justify-content: center;
 }
 
+.reviewsCard {
+  box-shadow: 5px 4px 20px grey;
+}
+
 .editDelete {
   display: flex;
   justify-content: flex-end;
+  margin-bottom: 5px;
 }
 
 .starsContainer {
+  display: flex; 
   justify-content: center;
 }
