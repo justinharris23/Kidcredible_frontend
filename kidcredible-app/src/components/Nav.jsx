@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-import HeaderPicture from "/Users/joliewoodson/Desktop/GA/unit4/Project 4/Kidcredible/Kidcredible_frontend/kidcredible-app/src/assests/kidcredible-header.png"
+// import HeaderPicture from "/Users/joliewoodson/Desktop/GA/unit4/Project 4/Kidcredible/Kidcredible_frontend/kidcredible-app/src/assests/kidcredible-header.png"
 
 export default function Nav(props) {
   return (
@@ -24,7 +24,7 @@ export default function Nav(props) {
           <div className="mb-3 imageDiv">
             <img
               className="headerImage"
-              src={HeaderPicture}
+              src="https://imgur.com/mnb1RNQ.jpg"
               width="400px"
               height="auto"
             />
