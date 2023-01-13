@@ -19,7 +19,7 @@ const UpdateReview = ({ review, id }) => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     await axios
-      .put(`http://localhost:8000/reviews/${id}`, formValues)
+      .put(`https://fierce-crag-45615.herokuapp.com/${id}`, formValues)
 
       .then((response) => {
         // navigate("/products")

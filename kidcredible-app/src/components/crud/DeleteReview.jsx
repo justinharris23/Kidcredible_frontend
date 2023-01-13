@@ -6,7 +6,9 @@ import axios from "axios"
 const DeleteBtn = ({ reviewdelete }) => {
   const handleDelete = async () => {
     // make a request to the API to delete the review
-    await axios.delete(`http://localhost:8000/reviews/${reviewdelete}`)
+    await axios.delete(
+      `https://fierce-crag-45615.herokuapp.com/${reviewdelete}`
+    )
     window.location.reload()
   }
 

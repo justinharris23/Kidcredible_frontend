@@ -25,7 +25,9 @@ export default function Reviews() {
 
   useEffect(() => {
     const getData = async () => {
-      const response = await axios.get(`http://localhost:8000/products/${id}`)
+      const response = await axios.get(
+        `https://fierce-crag-45615.herokuapp.com/${id}`
+      )
 
       setProduct(response.data)
       setReview(response.data.reviews)

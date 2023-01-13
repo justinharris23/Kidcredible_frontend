@@ -14,7 +14,9 @@ export default function Products() {
 
   useEffect(() => {
     const getProducts = async () => {
-      const response = await axios.get("http://localhost:8000/products")
+      const response = await axios.get(
+        "https://fierce-crag-45615.herokuapp.com/products"
+      )
       setProducts(response.data)
       console.log(response.data)
     }

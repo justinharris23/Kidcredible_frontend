@@ -19,7 +19,7 @@ export default function CreateReview({ id }) {
     title: "",
     body: "",
     rating: newRating,
-    product: `http://localhost:8000/products/${id}`,
+    product: `https://fierce-crag-45615.herokuapp.com/${id}`,
   })
 
   // const handleRatingChange = (newRating) => {
@@ -33,7 +33,7 @@ export default function CreateReview({ id }) {
   const handleLogin = async (event) => {
     event.preventDefault()
     await axios
-      .post(`http://localhost:8000/reviews/`, {
+      .post(`https://fierce-crag-45615.herokuapp.com/`, {
         ...formData,
         rating: newRating,
       })
